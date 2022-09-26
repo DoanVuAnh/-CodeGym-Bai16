@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Exercise] Build a class that describes a rectangle</title>
+</head>
+<body>
+  <label>Length<input type="number" id="numLength" oninput="numberRectangle()"></label>
+  <label>Width<input type="number" id="numWidth" oninput="numberRectangle()"></label>
+  <p id="areaRectangle"></p>
+  <p id="perimeterRectangle"></p>
+  <button type="button" onclick="drawRectangle()">Draw a Rectangle</button>
+  <canvas id="myCanvas" width="1368px" height="768px" style="border: 1px solid #d3d3d3;"></canvas>
+</body>
+</html>
+<script>
+  function numberRectangle() {
+    let numLength = +document.getElementById("numLength").value;
+    let numWidth = document.getElementById("numWidth").value;
+    document.getElementById("areaRectangle").innerHTML = numLength * numWidth;
+    document.getElementById("perimeterRectangle").innerHTML = (numLength + numWidth)*2;
+
+  }
+  function drawRectangle() {
+      let numLength = +document.getElementById("numLength").value;
+      let numWidth = document.getElementById("numWidth").value;
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#d33";
+      ctx.fillRect(0, 0, numLength, numWidth);
+  }
+
+</script>
